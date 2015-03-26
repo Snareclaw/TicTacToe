@@ -1,35 +1,34 @@
+<div id="header">
+  <h1 class="header-title">2 Player <span id=header-divider>|</span> Tic Tac Toe</h1>
+</div>
 <div id="tictactoe">
-  <div id="header">
-    <h1 class="header-title">2 Player | Tic Tac Toe</h1>
+  <div id="current-player">
+    <h2>It is Player <span id="player-id">X</span>'s turn.<h2>
   </div>
-  <div id="content">
-    <div id="current-player">
-      <h2>It is Player <span id="player-id">X</span>'s turn.<h2>
-    </div>
-    <div id="game-board">
-      <table id="board">
-        <tbody>
-          <tr>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-          </tr>
-          <tr>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-          </tr>
-          <tr>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div id="how-to-play">
-      <h2 class="title">How to play:</h2>
-      <p>The current player must left click on one of the squares in order to mark it as theirs. Once a square is marked, the next player takes their turn in a similar fashion. Gameplay ends when either one player marks three squares in a row, resulting in a win for that player, or if all squares are marked without three in a row, in which case the game is declared a draw. Play always begins with Player X.</p>
-    </div>
+  <div id="game-board">
+    <table id="board">
+      <tbody>
+        <tr>
+          <td id="00">-</td>
+          <td id="01">-</td>
+          <td id="02">-</td>
+        </tr>
+        <tr>
+          <td id="10">-</td>
+          <td id="11">-</td>
+          <td id="12">-</td>
+        </tr>
+        <tr>
+          <td id="20">-</td>
+          <td id="21">-</td>
+          <td id="22">-</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
+  <div id="victory"></div>
+</div>
+<div id="how-to-play">
+  <h2 class="title">How to play:</h2>
+  <p>The current player must left click on one of the squares in order to mark it as theirs. Once a square is marked, the next player takes their turn in a similar fashion. Gameplay ends when either one player marks three squares in a row, resulting in a win for that player, or if all squares are marked without three in a row, in which case the game is declared a draw. Play always begins with Player X.</p>
 </div>

@@ -1,0 +1,58 @@
+body {
+  text-align:center;
+  margin: 0px;
+  border: 0px;
+}
+
+#header {
+  background-color:#3D3D3D;
+  color:#FFFFFF;
+  font-size:22px;
+  width:100%;
+}
+
+#header #header-divider {
+  color:#FF0000;
+}
+
+#tictactoe {
+  font-family:Helvetica;
+  padding:20px 10px 10px 20px;
+}
+
+#tictactoe #player-id {
+  color:#FF0000;
+}
+
+#tictactoe #game-board {
+  margin:auto;
+  width:350px;
+  height:350px;
+}
+
+#tictactoe #board {
+  margin-left:auto;
+  margin-right:auto;
+  border:2px solid #000000;
+}
+
+#tictactoe tr {
+  height:100px;
+}
+
+#tictactoe td {
+  width:100px;
+  border:2px solid #000000;
+  font-size:50px;
+}
+
+#tictactoe #victory {
+  font-weight:bold;
+  font-size:20px;
+  color: #FF0000;
+}
+
+#how-to-play {
+  width:60%;
+  margin:auto;
+}
