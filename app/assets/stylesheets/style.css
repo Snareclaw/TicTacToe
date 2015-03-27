@@ -42,7 +42,10 @@ body {
 
 #tictactoe td {
   width:100px;
-  border:2px solid #000000;
+  border-top:4px solid #AAAAAA;
+  border-left:4px solid #888888;
+  border-bottom:4px solid #000000;
+  border-right:4px solid #000000;
   font-size:50px;
 }
 
