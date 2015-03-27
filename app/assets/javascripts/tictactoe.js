@@ -44,17 +44,18 @@ $(document).ready(function() {
     }
     else {
       // Delete any error messages left from previous actions.
-      if (document.getElementById('error').innerHTML != "") {
-        document.getElementById('error').innerHTML = "";
-      }
+      document.getElementById('error').innerHTML = "";
+
       // Set the current tile to the current player's marker.
       this.innerHTML = players[current_player];
       var coord = $(this).attr("id");
       board[coord[0]][coord[1]] = current_player;
       remaining_tiles -= 1;
+
       // Add the move to the stack and mark that a new move was made, enabling limit-one-undo
       move_stack.push(coord);
       undone = false;
+
       // Check for game ending conditions
       if (winner()) {
         document.getElementById('announcement').innerHTML = "Winner: Player " + players[current_player];
@@ -81,6 +82,9 @@ $(document).ready(function() {
     move_stack = [];
     board = [[-1, -1, -1], [-1, -1, -1], [-1, -1, -1]];
     
+    // This is technically not needed, but it never hurts to be safe.
+    undone = false;
+
     // Reset the announcement and clear errors
     document.getElementById('announcement').innerHTML = "It is Player <span id='player-id'>X</span>'s turn.";
     document.getElementById('error').innerHTML = "";
@@ -109,12 +113,15 @@ $(document).ready(function() {
     else {
       // Clear any error messages.
       document.getElementById('error').innerHTML = '';
+
       // Retrieve the last move made and set that cell to empty.
       prev_move = move_stack.pop();
       document.getElementById(prev_move).innerHTML = '-';
       board[prev_move[0]][prev_move[1]] = -1;
+
       // Increment back the tiles remaining.
       remaining_tiles += 1;
+
       if (game_over === true) {
         // Reset game_over status and message in case it was changed.
         game_over = false;
@@ -126,8 +133,10 @@ $(document).ready(function() {
         if (current_player < 0) {
           current_player = num_players - 1;
         }
+
         document.getElementById('player-id').innerHTML = players[current_player];
       }
+
       // Mark that an undo was the most recent action. Comment this out if allowing any amount of undos.
       undone = true;
     }
