@@ -29,13 +29,13 @@ $(document).ready(function() {
     
 
   // Define the action that occurs if a cell is clicked on.
-  $('#board td').click(function(event) {
+  $('#board td').unbind('click').click(function() {
     // Check for errors and output a message if found.
-    if (game_over == true) {
-      document.getElementById('error').innerHTML = "ERROR: Game already ended. No move cannot be made.";
-    }
-    else if ($(this).text()!= '-') {
+    if ($(this).text()!= '-') {
       document.getElementById("error").innerHTML = "ERROR: That spot has already been selected!";
+    }
+    else if (game_over === true) {
+      document.getElementById('error').innerHTML = "ERROR: Game already ended. No moves can be made.";
     }
     else {
       // Delete any error messages left from previous actions.
@@ -61,6 +61,6 @@ $(document).ready(function() {
         current_player = (current_player + 1) % 2;
         document.getElementById('player-id').innerHTML = players[current_player];
       }
-    }
+    }    
   })
 })
