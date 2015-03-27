@@ -1,9 +1,14 @@
 $(document).ready(function() {
-  // Initialize the player symbols, the index of the first player as the current player, a check for the game being over, and the number of remaining tiles..
+  // Initialize the player symbols, the index of the first player as the current player, a check for the game being over, and the number of remaining tiles.
   var players = ['X', 'O'];
+  var num_players = players.length;
   var current_player = 0;
   var game_over = false;
   var remaining_tiles = 9;
+
+  // Initalize empty stack of moves for undo capabilities. Variable undone is only needed if limiting the player to one undo (so that one player cannot undo the entire game).
+  var move_stack = [];
+  var undone = false;
 
   // Initialize the board. It is represented by an length 3 array of length 3 arrays.
   // Values: -1 is no player mark, 0 is player 0's mark, 1 is player 1's mark.
@@ -47,6 +52,9 @@ $(document).ready(function() {
       var coord = $(this).attr("id");
       board[coord[0]][coord[1]] = current_player;
       remaining_tiles -= 1;
+      // Add the move to the stack and mark that a new move was made, enabling limit-one-undo
+      move_stack.push(coord);
+      undone = false;
       // Check for game ending conditions
       if (winner()) {
         document.getElementById('announcement').innerHTML = "Winner: Player " + players[current_player];
@@ -58,7 +66,7 @@ $(document).ready(function() {
       }
       else {
         // If no win, switch players.
-        current_player = (current_player + 1) % 2;
+        current_player = (current_player + 1) % num_players;
         document.getElementById('player-id').innerHTML = players[current_player];
       }
     }    
@@ -70,10 +78,11 @@ $(document).ready(function() {
     current_player = 0;
     game_over = false;
     remaining_tiles = 9;
+    move_stack = [];
     board = [[-1, -1, -1], [-1, -1, -1], [-1, -1, -1]];
     
     // Reset the announcement and clear errors
-    document.getElementById('announcement').innerHTML = "It is Player <span id='player-id'>X</span>'s turn.</h2>";
+    document.getElementById('announcement').innerHTML = "It is Player <span id='player-id'>X</span>'s turn.";
     document.getElementById('error').innerHTML = "";
 
     // Clear all cells
@@ -88,4 +97,39 @@ $(document).ready(function() {
     document.getElementById('22').innerHTML = "-"; 
   })
 
+  // Define the action that undoes the last move if clicked on.
+  $('#undo').unbind('click').click(function() {
+    // Check that only a move has not already been undone, and that at least one move has been made. 
+    if (move_stack.length === 0) {
+      document.getElementById('error').innerHTML = "ERROR: No moves left to undo!";
+    }
+    else if(undone === true) {
+      document.getElementById('error').innerHTML = "ERROR: Move was already undone. Cannot undo opponent's move.";
+    }
+    else {
+      // Clear any error messages.
+      document.getElementById('error').innerHTML = '';
+      // Retrieve the last move made and set that cell to empty.
+      prev_move = move_stack.pop();
+      document.getElementById(prev_move).innerHTML = '-';
+      board[prev_move[0]][prev_move[1]] = -1;
+      // Increment back the tiles remaining.
+      remaining_tiles += 1;
+      if (game_over === true) {
+        // Reset game_over status and message in case it was changed.
+        game_over = false;
+        document.getElementById('announcement').innerHTML = "It is Player <span id='player-id'>" + players[current_player] + "</span>'s turn."
+      }
+      else {
+        // Otherwise increment current player back one.
+        current_player = current_player - 1;
+        if (current_player < 0) {
+          current_player = num_players - 1;
+        }
+        document.getElementById('player-id').innerHTML = players[current_player];
+      }
+      // Mark that an undo was the most recent action. Comment this out if allowing any amount of undos.
+      undone = true;
+    }
+  })
 })

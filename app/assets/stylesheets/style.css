@@ -43,24 +43,46 @@ body {
 
 #tictactoe td {
   width:100px;
+  background-color:#555555;
   border-top:4px solid #AAAAAA;
   border-left:4px solid #888888;
   border-bottom:4px solid #000000;
   border-right:4px solid #000000;
   font-size:50px;
+  color:#FF3333;
+}
+
+#tictactoe #buttons {
+  height:20px;
+  width: 210px;
+  margin:0 auto;
+  margin-bottom:30px;
 }
 
 #tictactoe #restart {
-  margin:auto;
-  margin-bottom: 30px;
-  width:150px;
-  height:20px;
+  float:left;
+  width:60%;
+  height:100%;
   background-color:#35FF1F;
   border-top:5px solid #83FF75;
   border-left:5px solid #68FF57;
   border-bottom:5px solid #46CC37;
   border-right:5px solid #46CC37;
   text-align:center;
+  font-weight:bold;
+}
+
+#tictactoe #undo {
+  float:right;
+  width:30%;
+  height:100%;
+  background-color:#333333;
+  border-top:5px solid #AAAAAA;
+  border-left:5px solid #999999;
+  border-bottom:5px solid #000000;
+  border-right:5px solid #000000;
+  text-align:center;
+  color: #FFFFFF;
   font-weight:bold;
 }
 
@@ -71,7 +93,12 @@ body {
 }
 
 #how-to-play {
-  width:60%;
+  width:50%;
   margin:auto;
-  padding: 50px;
+  padding:50px;
+  text-align:left;
+}
+
+#how-to-play .title {
+  text-align:center;
 }
