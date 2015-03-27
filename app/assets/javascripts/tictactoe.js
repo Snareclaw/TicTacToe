@@ -31,11 +31,11 @@ $(document).ready(function() {
   // Define the action that occurs if a cell is clicked on.
   $('#board td').unbind('click').click(function() {
     // Check for errors and output a message if found.
-    if ($(this).text()!= '-') {
-      document.getElementById("error").innerHTML = "ERROR: That spot has already been selected!";
-    }
-    else if (game_over === true) {
+    if (game_over === true) {
       document.getElementById('error').innerHTML = "ERROR: Game already ended. No moves can be made.";
+    }
+    else if ($(this).text()!= '-') {
+      document.getElementById('error').innerHTML = "ERROR: That spot has already been selected!";
     }
     else {
       // Delete any error messages left from previous actions.
@@ -49,11 +49,11 @@ $(document).ready(function() {
       remaining_tiles -= 1;
       // Check for game ending conditions
       if (winner()) {
-        document.getElementById('victory').innerHTML = "Winner: Player " + players[current_player];
+        document.getElementById('announcement').innerHTML = "Winner: Player " + players[current_player];
         game_over = true
       }
       else if (remaining_tiles == 0) {
-        document.getElementById('victory').innerHTML = "Draw";
+        document.getElementById('announcement').innerHTML = "Draw";
         game_over = true;
       }
       else {
@@ -63,4 +63,29 @@ $(document).ready(function() {
       }
     }    
   })
+
+  // Define the action that restarts the game if restart if clicked on.
+  $('#restart').unbind('click').click(function() {
+    // Reinitialize default values
+    current_player = 0;
+    game_over = false;
+    remaining_tiles = 9;
+    board = [[-1, -1, -1], [-1, -1, -1], [-1, -1, -1]];
+    
+    // Reset the announcement and clear errors
+    document.getElementById('announcement').innerHTML = "It is Player <span id='player-id'>X</span>'s turn.</h2>";
+    document.getElementById('error').innerHTML = "";
+
+    // Clear all cells
+    document.getElementById('00').innerHTML = "-";
+    document.getElementById('01').innerHTML = "-";
+    document.getElementById('02').innerHTML = "-";
+    document.getElementById('10').innerHTML = "-";
+    document.getElementById('11').innerHTML = "-";
+    document.getElementById('12').innerHTML = "-";
+    document.getElementById('20').innerHTML = "-";
+    document.getElementById('21').innerHTML = "-";
+    document.getElementById('22').innerHTML = "-"; 
+  })
+
 })
