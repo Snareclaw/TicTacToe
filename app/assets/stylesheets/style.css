@@ -46,7 +46,7 @@ body {
   font-size:50px;
 }
 
-#tictactoe #victory {
+#tictactoe.alert {
   font-weight:bold;
   font-size:20px;
   color: #FF0000;

@@ -1,3 +1,5 @@
+<%= javascript_include_tag "tictactoe" %>
+
 <div id="header">
   <h1 class="header-title">2 Player <span id=header-divider>|</span> Tic Tac Toe</h1>
 </div>
@@ -26,7 +28,8 @@
       </tbody>
     </table>
   </div>
-  <div id="victory"></div>
+  <div class="alert" id="error"> </div>
+  <div class="alert" id="victory"> </div>
 </div>
 <div id="how-to-play">
   <h2 class="title">How to play:</h2>
