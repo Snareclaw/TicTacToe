@@ -1,6 +1,6 @@
 # Summary
 
-This project is a simple Tic Tac Toe game for two players, written using HTML/CSS and Javascript, and built on the Ruby on Rails framework.
+This project is a simple Tic Tac Toe game for two players, written using HTML/CSS and Javascript, and built on the Ruby on Rails framework. Play now at http://calm-atoll-9489.herokuapp.com/
 
 # Table of Contents
 
