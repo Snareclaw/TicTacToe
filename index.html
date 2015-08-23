@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="TicTacToe : Two-Player TicTacToe">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>TicTacToe</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/andrew-zhao/TicTacToe">View on GitHub</a>
+
+          <h1 id="project_title">TicTacToe</h1>
+          <h2 id="project_tagline">Two-Player TicTacToe</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/andrew-zhao/TicTacToe/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/andrew-zhao/TicTacToe/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a id="summary" class="anchor" href="#summary" aria-hidden="true"><span class="octicon octicon-link"></span></a>Summary</h1>
+
+<p>This project is a simple Tic Tac Toe game for two players, written using HTML/CSS and Javascript, and built on the Ruby on Rails framework. Play now at <a href="http://calm-atoll-9489.herokuapp.com/">http://calm-atoll-9489.herokuapp.com/</a></p>
+
+<h1>
+<a id="table-of-contents" class="anchor" href="#table-of-contents" aria-hidden="true"><span class="octicon octicon-link"></span></a>Table of Contents</h1>
+
+<ul>
+<li><a href="#reqs">Requirements</a></li>
+<li><a href="#how-to-play">How to Play</a></li>
+<li><a href="#future-features">Future Improvements/Expansions</a></li>
+<li><a href="#credit">Credit</a></li>
+</ul>
+
+<h1>
+<a id="requirements" class="anchor" href="#requirements" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="reqs"></a>Requirements</h1>
+
+<p>This application was built primarily with HTML/CSS and Javascript, and uses simple methods that should be supported on all major browsers.</p>
+
+<h1>
+<a id="how-to-play" class="anchor" href="#how-to-play" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="how-to-play"></a>How to Play</h1>
+
+<p>Starting with player A, each player takes turns choosing where to place their marker (either X for player A or O for player B). Each marker is placed by left clicking once on the cell that the player wants to place their piece on. The current player is displayed at the top of the page.</p>
+
+<p>When a game ends, the game will display one of three outcomes at the top, depending on which was reached:</p>
+
+<ul>
+<li>Winner: Player A</li>
+<li>Winner: Player B</li>
+<li>Draw</li>
+</ul>
+
+<p>Players can click on Restart? in order to reset the game, or press Undo to undo the previous move.</p>
+
+<h1>
+<a id="future-improvementsexpansions" class="anchor" href="#future-improvementsexpansions" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="future-features"></a>Future Improvements/Expansions</h1>
+
+<p>The code was designed to make improvements relatively easy. Current player increments as well as representations are designed so that adding new players is as easy as adding another symbol to the player list.</p>
+
+<p>The undo function allows for either 1 or as many undos as desired, which can be switched between by commenting one line of code. A possible future improvement would be to implement a form that would let players choose how many undos to allow, between 0 and 9 (inclusive).</p>
+
+<p>Currently the board is limited to 3x3. Enlarging it would require redesigning how winning combinations are checked, however that can be done in the winner function, so that the rest of the code does not need to be changed.</p>
+
+<p>Another possible feature is the addition of tracking the number of wins a player has, whether locally in Javascript, or in a database using Rails.</p>
+
+<h1>
+<a id="credit" class="anchor" href="#credit" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="credit"></a>Credit</h1>
+
+<p>Written by Andrew Zhao (2015)</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">TicTacToe maintained by <a href="https://github.com/andrew-zhao">andrew-zhao</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
